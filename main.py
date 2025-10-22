@@ -1,6 +1,5 @@
 import vector
-import pygameApp
-pygameApp.PygameApp()
+from pygameApp import PygameApp
 
 class Main:
     def __init__(self):
@@ -11,3 +10,8 @@ class Main:
 
     def loop(self):
         print("Main loop running...")
+        
+
+if __name__ == "__main__":
+    main = Main()
+    app = PygameApp(main)

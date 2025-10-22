@@ -1,38 +1,21 @@
-import pygameApp
-import sys
-import main
-
+import pygame
 
 class PygameApp:
-    def __init__(self):
-        # --- Initialisierung ---
-        pygameApp.init()
-        programm = main.Main()
+    def __init__(self, main):
+        self.main = main
+        pygame.init()
+        self.screen = pygame.display.set_mode((800, 600))
+        pygame.display.set_caption("Meine App")
+        self.running = True
+        self.loop()
 
-        # --- Fenster erstellen ---
-        WIDTH, HEIGHT = 800, 600
-        screen = pygameApp.display.set_mode((WIDTH, HEIGHT))
-        pygameApp.display.set_caption("Mein Pygame-Programm")
+    def loop(self):
+        while self.running:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.running = False
 
-        # --- Hauptloop ---
-        clock = pygameApp.time.Clock()
-        running = True
-        while running:
-            # --- Ereignisse (Events) abfragen ---
-            for event in pygameApp.event.get():
-                if event.type == pygameApp.QUIT:
-                    running = False
-
-            # --- Logik / Updates ---
-            # (z. B. Positionen berechnen, Kollisionen prüfen, usw.)
-            programm.loop()
-            # --- Zeichnen ---
-            screen.fill((30, 30, 30))  # Hintergrundfarbe
-            # (hier zeichnest du Objekte)
-
-            pygameApp.display.flip()  # Bildschirm aktualisieren
-            clock.tick(60)         # 60 FPS
-
-        # --- Beenden ---
-        pygameApp.quit()
-        sys.exit()
+            self.screen.fill((0, 0, 0))
+            self.main.loop()
+            pygame.display.flip()
+        pygame.quit()
