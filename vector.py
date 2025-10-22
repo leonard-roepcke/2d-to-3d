@@ -11,7 +11,7 @@ class Vector2D:
 
 class Vector3D:
     len_diagonal = 2 ** 0.5
-    z_vector = Vector2D(-len_diagonal, -len_diagonal)
+    z_vector = Vector2D(-len_diagonal, len_diagonal)
     def __init__(self, x, y, z):
         self.x = x
         self.y = y
