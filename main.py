@@ -7,7 +7,8 @@ class Main:
         pass
 
     def loop(self):
-        print("Main loop running...")
+        #print("Main loop running...")
+        pass
         
 
 if __name__ == "__main__":
