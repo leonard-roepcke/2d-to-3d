@@ -1,5 +1,6 @@
 import vector
 from pygameApp import PygameApp
+import random
 
 class Main:
     def __init__(self):
@@ -12,8 +13,15 @@ class Main:
 if __name__ == "__main__":
     main = Main()
     app = PygameApp(main)
-    app.add_point(vector.Vector3D(150, 150, 3).convert_to_2d())
-    app.add_point(vector.Vector3D(300, 150, 3).convert_to_2d())
-    app.add_point(vector.Vector3D(300, 300, 3).convert_to_2d())
-    app.add_point(vector.Vector3D(300, 300, 50).convert_to_2d())
+
+    points = []
+    for i in range(100):
+        points.append(vector.Vector3D(random.randint(0, 800),random.randint(0, 800),random.randint(0, 800)))
+        if i > 0:
+            points[-1].conect(random.choice(points[:-1]))
+
+
+
+
+    app.set_points(points)
     app.loop()
