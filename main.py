@@ -15,12 +15,35 @@ if __name__ == "__main__":
     main = Main()
     app = PygameApp(main)
 
-    points = []
-    for i in range(100):
-        points.append(vector.Vector3D(random.randint(0, 800),random.randint(0, 800),random.randint(0, 800)))
-        if i > 0:
-            points[-1].conect(random.choice(points[:-1]))
 
+    points = []
+
+    # 8 Ecken eines Würfels
+    coords = [
+        (0, 0, 0),
+        (1, 0, 0),
+        (1, 1, 0),
+        (0, 1, 0),
+        (0, 0, 1),
+        (1, 0, 1),
+        (1, 1, 1),
+        (0, 1, 1),
+    ]
+
+    size = 200
+    offset_x = 1000
+    offset_y = 300
+    for x, y, z in coords:
+        points.append(vector.Vector3D(offset_x + x * size, offset_y + y * size, z * size*0.5))
+
+    edges = [
+        (0, 1), (1, 2), (2, 3), (3, 0), 
+        (4, 5), (5, 6), (6, 7), (7, 4),  
+        (0, 4), (1, 5), (2, 6), (3, 7)  
+    ]
+
+    for a, b in edges:
+        points[a].conect(points[b])
 
 
 

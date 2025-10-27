@@ -5,7 +5,7 @@ class PygameApp:
     def __init__(self, main):
         self.main = main
         pygame.init()
-        self.screen = pygame.display.set_mode((800, 600))
+        self.screen = pygame.display.set_mode((2800, 1600))
         pygame.display.set_caption("Meine App")
         self.running = True
 
