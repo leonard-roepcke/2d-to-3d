@@ -10,6 +10,11 @@ class PygameApp:
         self.running = True
 
         self.points = []
+        self.pos = [
+            vector.Vector3D(1,0,0),
+            vector.Vector3D(0,1,0),
+            vector.Vector3D(0,0,1)
+        ]
 
 
     def loop(self):
