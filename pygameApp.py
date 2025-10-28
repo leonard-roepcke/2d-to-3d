@@ -6,7 +6,7 @@ class PygameApp:
         self.main = main
         pygame.init()
         self.screen = pygame.display.set_mode((2800, 1600))
-        pygame.display.set_caption("Meine App")
+        pygame.display.set_caption("2d to 3d")
         self.running = True
 
         self.points = []
