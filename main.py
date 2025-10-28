@@ -48,4 +48,4 @@ if __name__ == "__main__":
 
 
     app.set_points(points)
-    app.loop() + self.pos[3].x
+    app.loop()
