@@ -28,8 +28,8 @@ class Vector3D:
     def get_length(self):
         return self.get_length_qrt() ** 0.5
     
-    def convert_to_2d(self):
-        return Vector2D(self.x + Vector3D.z_vector.x * self.z, self.y + Vector3D.z_vector.y * self.z)
+    def convert_to_2d(self, pos):
+        return Vector2D(self.x + pos[3].x + Vector3D.z_vector.x * (self.z + pos[3].z), self.y + pos[3].y + Vector3D.z_vector.y * (self.z + pos[3].z))
 
     def conect(self, vector:"Vector3D"):
         self.conections.append(vector)

@@ -27,10 +27,10 @@ class PygameApp:
             self.screen.fill((0, 0, 0))
             
             for point in self.points:
-                point_2D = point.convert_to_2d()
+                point_2D = point.convert_to_2d(self.pos)
                 pygame.draw.circle(self.screen, (255, 255, 255), (int(point_2D.x), int(point_2D.y)), 5)
                 for line in point.conections:
-                    line_2D = line.convert_to_2d()
+                    line_2D = line.convert_to_2d(self.pos)
                     pygame.draw.line(self.screen, (255, 255, 255), (int(point_2D.x),int(point_2D.y)),(int(line_2D.x),int(line_2D.y)), 3)
             
             self.main.loop()
