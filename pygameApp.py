@@ -25,6 +25,8 @@ class PygameApp:
                     self.running = False
 
             self.screen.fill((0, 0, 0))
+
+            self.update_pos()
             
             for point in self.points:
                 point_2D = point.convert_to_2d(self.pos)
@@ -42,3 +44,19 @@ class PygameApp:
 
     def add_point(self, point):
         self.points.append(point)
+    
+    def update_pos(self):
+        keys = pygame.key.get_pressed()
+
+        if keys[pygame.K_w]:
+            self.pos[3].y += 1
+        if keys[pygame.K_a]:
+            self.pos[3].y -= 1
+        if keys[pygame.K_s]:
+            self.pos[3].x += 1
+        if keys[pygame.K_d]:
+            self.pos[3].x -= 1
+        if keys[pygame.K_UP]:
+            self.pos[3].z += 1
+        if keys[pygame.K_DOWN]:
+            self.pos[3].z -= 1
