@@ -49,14 +49,14 @@ class PygameApp:
         keys = pygame.key.get_pressed()
 
         if keys[pygame.K_w]:
-            self.pos[3].y += 1
-        if keys[pygame.K_a]:
-            self.pos[3].y -= 1
-        if keys[pygame.K_s]:
-            self.pos[3].x += 1
-        if keys[pygame.K_d]:
-            self.pos[3].x -= 1
-        if keys[pygame.K_UP]:
             self.pos[3].z += 1
-        if keys[pygame.K_DOWN]:
+        if keys[pygame.K_s]:
             self.pos[3].z -= 1
+        if keys[pygame.K_a]:
+            self.pos[3].x -= 1
+        if keys[pygame.K_d]:
+            self.pos[3].x += 1
+        if keys[pygame.K_UP]:
+            self.pos[3].y += 1
+        if keys[pygame.K_DOWN]:
+            self.pos[3].y -= 1
